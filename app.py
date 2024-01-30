@@ -1,11 +1,13 @@
 from flask import Flask, request, jsonify
 from joblib import load
+from flask_cors import CORS
 import pandas as pd
 
 scalar = load("scalar.joblib")
 model = load("chronicKidney.joblib")
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/')
 def hello():
